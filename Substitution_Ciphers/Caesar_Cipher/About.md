@@ -34,3 +34,5 @@ for different special characters. This happens when the key is such that after e
 Issues with Caesar Cipher:
 - With enough text a direct relation between the ciphertext and the plaintext can be found which makes it very easy to
 decrypt caesar cipher.
+- There are only 25 possible ways to encrypt using the caesar cipher so it is very easy to break using brute force
+analysis.
