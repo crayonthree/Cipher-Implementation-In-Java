@@ -67,6 +67,7 @@ public class caesarMain {
 
         System.out.println("DONE!");      
 
+        //Closing to avoid resource leaks.
         keyboardInput.close();
 
     }
