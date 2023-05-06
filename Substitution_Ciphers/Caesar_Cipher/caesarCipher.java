@@ -1,3 +1,8 @@
+/*
+ * Name: caesarCipher.java
+ * Author: crayonthree / Abhiroop Yerramilli
+ * Description: This class contains the functions to encrypt and decrypt a given string based on the entered key.
+ */
 package Substitution_Ciphers.Caesar_Cipher;
 
 class caesarCipher{

@@ -1,3 +1,9 @@
+/*
+ * Name: caesarMain.java
+ * Author: crayonthree / Abhiroop Yerramilli
+ * Description: This class contains the functions to take user input, encrypt and decrypt the given text based on the
+ *              input string and key, using the caesar cipher.
+ */
 package Substitution_Ciphers.Caesar_Cipher;
 
 import java.util.Scanner;
