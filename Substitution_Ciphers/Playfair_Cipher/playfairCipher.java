@@ -360,14 +360,5 @@ public class playfairCipher {
         return finalString;
 
     }
-
-    public void printKey(){
-        for(int i=0;i<5;i++){
-            for(int j=0;j<5;j++){
-                System.out.print(keyArray[i][j]);
-            }
-            System.out.println();
-        }
-    }
     
 }
