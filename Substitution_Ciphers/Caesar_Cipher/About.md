@@ -3,6 +3,7 @@ Caesar Cipher:
 - Caesar Cipher makes use of the character set and codes.
 
 - Based on the given key, the encryption and decryption happens as below:
+
     |   Encryption
     - Every plaintext character is replaced with another plaintext alphabet of the same form (i.e. upper or lower case).
     - This replacement is done based on the key and when we reach the last alphabet, we wrap around.
@@ -12,6 +13,7 @@ Caesar Cipher:
         we wrap around and the ciphetext would be 'A'.
     - This is also done for all the ascii characters. Java uses around 256 ascii alphabets, so as soon as we reach the
         end of the ASCII list, we wrap around to ASCII character 1.
+
     |   Decryption
     - The wraparound and replacement is done as before but instead of incrementing we decrement to decrypt.
     - Examples:

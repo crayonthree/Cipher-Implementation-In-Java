@@ -23,7 +23,7 @@ public class playfairMain {
         Scanner keyboardInput = new Scanner(System.in);
 
         //Getting the input for the string to be encrypted.
-        System.out.println("Enter the string to be encrypted in capital alphabets (no special characters, spaces allowed): ");
+        System.out.println("Enter the string to be encrypted (special characters and spaces would be removed): ");
         String textToBeEncrypted = keyboardInput.nextLine();
 
         //Getting the key to use to encrypt.
@@ -33,7 +33,11 @@ public class playfairMain {
         //New playfair cipher object.
         playfairCipher newCipher = new playfairCipher(key);
 
-        newCipher.printKey();
+        //Encrypting and storing the input text
+        String encryptedText = newCipher.playfairEncryption(textToBeEncrypted);
+
+        //Decrypting and storing the encrypted text
+        String decryptedText = newCipher.playfairDecryption(encryptedText);
 
         //Closing to avoid resource leaks.
         keyboardInput.close();
