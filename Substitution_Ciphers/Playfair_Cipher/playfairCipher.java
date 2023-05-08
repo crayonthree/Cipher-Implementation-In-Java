@@ -213,14 +213,14 @@ public class playfairCipher {
 
                 //Normal condition and wraparound condition
                 if(columnFirstCharacter - 1 == -1){
-                    finalPair[0] = keyArray[rowFirstCharacter][5];
+                    finalPair[0] = keyArray[rowFirstCharacter][4];
                 }else{
                     finalPair[0] = keyArray[rowFirstCharacter][columnFirstCharacter-1];
                 }
 
                 //Normal condition and wraparound condition
                 if(columnSecondCharacter - 1 == -1){
-                    finalPair[1] = keyArray[rowSecondCharacter][5];
+                    finalPair[1] = keyArray[rowSecondCharacter][4];
                 }else{
                     finalPair[1] = keyArray[rowSecondCharacter][columnSecondCharacter-1];
                 }
@@ -255,14 +255,14 @@ public class playfairCipher {
 
                 //Normal condition and wraparound condition
                 if(rowFirstCharacter - 1 == -1){
-                    finalPair[0] = keyArray[5][columnFirstCharacter];
+                    finalPair[0] = keyArray[4][columnFirstCharacter];
                 }else{
                     finalPair[0] = keyArray[rowFirstCharacter-1][columnFirstCharacter];
                 }
 
                 //Normal condition and wraparound condition
                 if(rowSecondCharacter - 1 == -1){
-                    finalPair[1] = keyArray[5][columnSecondCharacter];
+                    finalPair[1] = keyArray[4][columnSecondCharacter];
                 }else{
                     finalPair[1] = keyArray[rowSecondCharacter-1][columnSecondCharacter];
                 }
@@ -288,7 +288,24 @@ public class playfairCipher {
      * Description: This function takes in a string to be decrypted, and decrypts using the playfair cipher.
      */
     public String playfairDecryption(String textToBeDecrypted){
-        return null;
+
+        String decryptedString = "";
+
+        //Looping through the entire string
+        for(int i=0;i<textToBeDecrypted.length();i+=2){
+
+            //Considering one pair at a time.
+            char[] currentPair = new char[2];
+            currentPair[0] = textToBeDecrypted.charAt(i);
+            currentPair[1] = textToBeDecrypted.charAt(i+1);
+
+            //We decrypt the pair using the function encryptionTechniques, and add the decrypted pair to the string.
+            char[] decryptedPair = encryptionDecryptionTechniques(currentPair, 1);
+            decryptedString = decryptedString + decryptedPair[0] + "" + decryptedPair[1];
+        }
+
+        //Returning the decrypted string.
+        return decryptedString;
     }
 
     /*

@@ -32,12 +32,15 @@ public class playfairMain {
 
         //New playfair cipher object.
         playfairCipher newCipher = new playfairCipher(key);
+        System.out.println("Entered String to encrypt is: " + textToBeEncrypted);
 
         //Encrypting and storing the input text
         String encryptedText = newCipher.playfairEncryption(textToBeEncrypted);
+        System.out.println("The encrypted text becomes: " + encryptedText);
 
         //Decrypting and storing the encrypted text
         String decryptedText = newCipher.playfairDecryption(encryptedText);
+        System.out.println("The decrypted text becomes: " + decryptedText);
 
         //Closing to avoid resource leaks.
         keyboardInput.close();
