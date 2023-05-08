@@ -27,7 +27,7 @@ public class playfairMain {
         String textToBeEncrypted = keyboardInput.nextLine();
 
         //Getting the key to use to encrypt.
-        System.out.println("Enter the key to use to encrypt the string.");
+        System.out.println("Enter the key to use to encrypt the string: ");
         String key = keyboardInput.nextLine();
 
         //New playfair cipher object.

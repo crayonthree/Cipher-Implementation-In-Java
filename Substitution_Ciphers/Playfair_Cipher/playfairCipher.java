@@ -10,6 +10,12 @@ public class playfairCipher {
     //2-D array to store the key.
     private char[][] keyArray = new char[5][5];
 
+    /*
+     * Name: playfairCipher
+     * Parameters: String
+     * Return: String
+     * Description: This constructor takes in a key, and makes the key matrix.
+     */
     public playfairCipher(String key){
 
         //Transforming the key
