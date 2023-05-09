@@ -92,7 +92,44 @@ public class matrixTranspositionCipher {
      * Description: This function takes in a string to be decrypted, and decrypts using the matrix transposition cipher.
      */
     public String matrixTranspositionDecryption(String textToBeDecrypted){
-        return null;
+        
+        //Initializing ints to store variables for the matrix.
+        int numberOfColumns = columnKey.length;
+        int numberOfCharacters = textToBeDecrypted.length();
+        int numberOfRows = (numberOfCharacters/numberOfColumns);
+
+        //Making the matrix
+        char[][] currentMatrix = new char[numberOfRows][numberOfColumns];
+
+        //Applying the key for decryption, and remaking the matrix
+        int currentCharacterIndex = 0;
+        for(int j=0;j<columnKey.length;j++){
+            for(int i=0;i<numberOfRows;i++){
+
+                //Reading the string to be decrypted.
+                currentMatrix[i][columnKey[j]] = textToBeDecrypted.charAt(currentCharacterIndex);
+                currentCharacterIndex++;
+
+            }
+        }
+
+        //Reading the matrix one row at a time.
+        String plainText = "";
+        for(int i=0;i<numberOfRows;i++){
+
+            String currentRow = "";
+            for(int j=0;j<numberOfColumns;j++){
+                
+                currentRow = currentRow + currentMatrix[i][j];
+
+            }
+
+            //Reading the rows and adding them to the final plaintext string.
+            plainText = plainText + currentRow;
+        }
+
+        //Returning the plainText
+        return plainText;
     }
     
 }
