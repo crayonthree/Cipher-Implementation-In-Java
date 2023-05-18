@@ -33,8 +33,6 @@ public class vigenereMain {
         vigenereCipher newCipher = new vigenereCipher(key);
         System.out.println("Entered String to encrypt is: " + textToBeEncrypted);
 
-        newCipher.printKey();
-
         //Encrypting and storing the input text
         String encryptedText = newCipher.vigenereEncryption(textToBeEncrypted);
         System.out.println("The encrypted text becomes: " + encryptedText);

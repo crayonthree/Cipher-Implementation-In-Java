@@ -9,7 +9,7 @@ public class vigenereCipher {
     
     //The keys to encryption and decryption.
     private char[][] vigenereMatrix;
-    private String vigenereKey;
+    private String vigenereKey = "";
 
     /*
      * Name: vigenereCipher
@@ -41,8 +41,16 @@ public class vigenereCipher {
             startingCharacter++;
         }
 
-        //Setting the initial key
-        vigenereKey = key;
+        //Parsing the key to only consider the capital alphabets.
+        for(int i=0;i<key.length();i++){
+
+            char currentCharacter = key.charAt(i);
+            if(currentCharacter>='A' && currentCharacter<='Z'){
+                vigenereKey = vigenereKey + currentCharacter;
+            }else if(currentCharacter>='a' && currentCharacter<='z'){
+                vigenereKey = vigenereKey + (char)(currentCharacter-32);
+            } 
+        }
     }
 
     /*
@@ -52,7 +60,38 @@ public class vigenereCipher {
      * Description: This function takes in a string to be encrypted and key to use, and encrypts it using the vigenere cipher.
      */
     public String vigenereEncryption(String textToBeEncrypted){
-        return null;
+
+        //Parsing the string to only consider the capital alphabets.
+        String parsedTextToBeEncrypted = "";
+        for(int i=0;i<textToBeEncrypted.length();i++){
+
+            char currentCharacter = textToBeEncrypted.charAt(i);
+            if(currentCharacter>='A' && currentCharacter<='Z'){
+                parsedTextToBeEncrypted = parsedTextToBeEncrypted + currentCharacter;
+            }else if(currentCharacter>='a' && currentCharacter<='z'){
+                parsedTextToBeEncrypted = parsedTextToBeEncrypted + (char)(currentCharacter-32);
+            }  
+
+        }
+
+        //Encrypting the parsed string
+        String encryptedString  = "";
+        int currentKeyIndex = 0;
+        for(int i=0;i<parsedTextToBeEncrypted.length();i++){
+
+            char currentCharacter = parsedTextToBeEncrypted.charAt(i);
+            char encryptedCharacter = vigenereMatrix[(int)vigenereKey.charAt(currentKeyIndex) - 65][(int)currentCharacter-65];
+            encryptedString = encryptedString + encryptedCharacter;
+            currentKeyIndex++;
+            
+            //Looping through the key
+            if(currentKeyIndex>=vigenereKey.length()){
+                currentKeyIndex = 0;
+            }
+        }
+
+        //Returning the encrypted string.
+        return encryptedString;
     }
 
     /*
@@ -62,16 +101,34 @@ public class vigenereCipher {
      * Description: This function takes in a string to be decrypted and key to use, and decrypts it using the vigenere cipher.
      */
     public String vigenereDecryption(String textToBeEncrypted){
-        return null;
-    }
 
-    public void printKey(){
-        for(int i=0;i<26;i++){
+        //Decrypting the parsed string
+        String decryptedString  = "";
+        int currentKeyIndex = 0;
+        for(int i=0;i<textToBeEncrypted.length();i++){
+
+            //Getting the current row and character.
+            int currentRow = (int)vigenereKey.charAt(currentKeyIndex)- 65;
+            char currentCharacter = textToBeEncrypted.charAt(i);
+            char encryptedCharacter = ' ';
+
+            //Looking through the row to find the character, looking up the index, and getting the encrypted character based on the index.
             for(int j=0;j<26;j++){
-                System.out.print(vigenereMatrix[i][j]);
+                if(currentCharacter == vigenereMatrix[currentRow][j]){
+                    encryptedCharacter = (char)(j + 65);
+                }
             }
-            System.out.println();
+            decryptedString = decryptedString + encryptedCharacter;
+            currentKeyIndex++;
+            
+            //Looping through the key
+            if(currentKeyIndex>=vigenereKey.length()){
+                currentKeyIndex = 0;
+            }
         }
+
+        //Returning the decrypted string.
+        return decryptedString;
     }
 
 }
