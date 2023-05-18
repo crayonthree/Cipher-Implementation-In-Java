@@ -13,7 +13,7 @@ public class matrixTranspositionCipher {
     /*
      * Name: matrixTranspositionCipher
      * Parameters: String
-     * Return: String
+     * Return: None
      * Description: This constructor takes in a key, and makes the key array.
      */
     public matrixTranspositionCipher(String key){

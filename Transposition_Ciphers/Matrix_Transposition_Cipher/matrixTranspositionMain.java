@@ -30,7 +30,7 @@ public class matrixTranspositionMain {
         System.out.println("Enter the key to use to encrypt the string (column numbers from 1, separated by spaces): ");
         String key = keyboardInput.nextLine();
 
-        //New playfair cipher object.
+        //New matrix transposition cipher object.
         matrixTranspositionCipher newCipher = new matrixTranspositionCipher(key);
         System.out.println("Entered String to encrypt is: " + textToBeEncrypted);
 
